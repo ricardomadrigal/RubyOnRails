@@ -1,0 +1,53 @@
+<% if user_signed_in? %>
+
+  <!--<h1>List of Users</h1>-->
+
+  <table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Twitter</th>
+          <th> </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @spdm_users.each do |spdm_user| %>
+          <% if spdm_user.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to spdm_user.first_name + ' ' + spdm_user.last_name, spdm_user %>
+            </td>
+            <td><%= spdm_user.email %></td>
+            <td><%= spdm_user.phone %></td>
+            <td><%= spdm_user.twitter %></td>
+            <td><%= link_to 'Delete', spdm_user, data: { turbo_method: :delete , turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-sm" %></td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+
+
+
+  <!--<div id="spdm_users">
+    <% @spdm_users.each do |spdm_user| %>
+      <%= render spdm_user %>
+      <%= spdm_user.user_id%>
+      <p>
+        <br/>
+        <%= link_to " Show User ", spdm_user, class:"btn btn-info" %>
+      </p>
+      <br/>
+    <% end %>
+  </div>-->
+
+  <%= link_to "New User", new_spdm_user_path, class:"btn btn-success" %>
+<% else %>
+  <h1>Hello World!</h1>
+  ...
+<% end %>
+

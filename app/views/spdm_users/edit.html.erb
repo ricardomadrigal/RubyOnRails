@@ -1,0 +1,11 @@
+<h1>Editing spdm user</h1>
+<br/>
+<%= render "form", spdm_user: @spdm_user %>
+
+<br>
+
+<div>
+  <%= link_to " Show ", @spdm_user, class:"btn btn-secondary" %>
+  <%= link_to 'Delete', @spdm_user, data: { turbo_method: :delete , turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+  <%= link_to " Back ", spdm_users_path, class:"btn btn-dark" %>
+</div>

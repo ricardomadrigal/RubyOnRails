@@ -1,0 +1,27 @@
+
+
+<div class="h-100 p-5 bg-light border rounded-3">
+    <h2>
+      <%= @spdm_user.first_name %>
+      <%= @spdm_user.last_name %>
+
+    </h2>
+    <p class="lead"> 
+      <%= @spdm_user.email %> |
+      <%= @spdm_user.phone%> |
+      <%= @spdm_user.twitter %>
+    </p>
+    <br/>
+    
+  <div>
+    <%= link_to " Edit User ", edit_spdm_user_path(@spdm_user), class:"btn btn-secondary" %>
+    <%= link_to 'Delete', @spdm_user, data: { turbo_method: :delete , turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+    <%= link_to " Back ", spdm_users_path, class:"btn btn-dark" %>
+  </div>
+</div>
+  <br/>
+
+<!--<div>
+  <%= button_to " Destroy User ", @spdm_user, class:"btn btn-danger", method: :delete %>
+</div>-->
+
